@@ -1,34 +1,39 @@
 from tkinter import *
 import math
+import pygame
+
+# C:\Users\farhi\PycharmProjects\D- 28 Pomodoro
 
 PINK = "#e2979c"
 RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 1
-SHORT_BREAK_MIN = 1
+WORK_MIN = 25
+SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 reps = 0
 timer = None
 
+pygame.mixer.init()
+work_sound = pygame.mixer.Sound("Ring.wav")
+
 # Time reset
 def reset_timer():
-    window.after_cancel(timer)
+    window.after_cancel('timer')
     canvas.itemconfig(timer_txt, text="00:00")
     title_label.config(text="Timer")
     check_mark.config(text="")
     global reps
     reps = 0
 
-
 # Timer
 def start_timer():
     global reps
     reps += 1
 
-    work_sec = WORK_MIN * 6
-    short_break_sec = SHORT_BREAK_MIN * 6
+    work_sec = WORK_MIN * 60
+    short_break_sec = SHORT_BREAK_MIN * 60
     long_break_sec = LONG_BREAK_MIN * 60
 
     if reps % 8 == 0:
@@ -50,6 +55,8 @@ def count_down(count):
         count_sec = f"0{count_sec}"
 
     canvas.itemconfig(timer_txt, text=f"{count_min}:{count_sec}")
+    if count == 5:
+        work_sound.play()
     if count > 0:
         global timer
         timer = window.after(1000, count_down, count - 1)
@@ -86,8 +93,5 @@ reset_button.grid(column=2, row=2)
 
 check_mark = Label(fg=GREEN, bg=YELLOW)
 check_mark.grid(column=1, row=3)
-
-
-
 
 window.mainloop()
