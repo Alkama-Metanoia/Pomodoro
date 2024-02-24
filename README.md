@@ -4,12 +4,12 @@ This is a Pomodoro Timer application, Pomodoro Technique is a time management me
 The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by 5 minutes short breaks. This timer follows the Pomodoro Technique to help you stay focused and productive during work sessions.
 
 *Requirements:
--Python 3.x
--Tkinter library
--pygame library
+1-Python 3.x
+2-Tkinter library
+3-pygame library
 
 *Install the required dependencies using pip:
--pip install - requirements
+pip install - requirements
 
 *Usage
 -Navigate to the project directory:
