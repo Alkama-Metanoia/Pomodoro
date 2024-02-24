@@ -8,10 +8,6 @@ Python 3.x
 Tkinter library
 pygame library
 
-*Installation
-Clone the repository to your local machine:
-Copy code - git clone https://github.com/Alkama-Metanoia/pomodoro-timer.git
-
 *Install the required dependencies using pip:
 -pip install -r requirements.txt
 
